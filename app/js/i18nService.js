@@ -44,13 +44,13 @@ app.factory('I18nService', function() {
 
         if (typeof this.timeHumanizer != 'undefined'){
             time = {
-                'millis' : this.timeHumanizer(diffFromAlarm, { units: ["milliseconds"] }),
-                'seconds' : this.timeHumanizer(diffFromAlarm, { units: ["seconds"] }),
-                'minutes' : this.timeHumanizer(diffFromAlarm, { units: ["minutes", "seconds"] }) ,
-                'hours' : this.timeHumanizer(diffFromAlarm, { units: ["hours", "minutes", "seconds"] }) ,
-                'days' : this.timeHumanizer(diffFromAlarm, { units: ["days", "hours", "minutes", "seconds"] }) ,
-                'months' : this.timeHumanizer(diffFromAlarm, { units: ["months", "days", "hours", "minutes", "seconds"] }) ,
-                'years' : this.timeHumanizer(diffFromAlarm, { units: ["years", "months", "days", "hours", "minutes", "seconds"] })
+                'millis' : this.timeHumanizer(diffFromAlarm, { units: ["ms"] }),
+                'seconds' : this.timeHumanizer(diffFromAlarm, { units: ["s"] }),
+                'minutes' : this.timeHumanizer(diffFromAlarm, { units: ["m", "s"] }) ,
+                'hours' : this.timeHumanizer(diffFromAlarm, { units: ["h", "m", "s"] }) ,
+                'days' : this.timeHumanizer(diffFromAlarm, { units: ["d", "h", "m", "s"] }) ,
+                'months' : this.timeHumanizer(diffFromAlarm, { units: ["mo", "d", "h", "m", "s"] }) ,
+                'years' : this.timeHumanizer(diffFromAlarm, { units: ["y", "mo", "d", "h", "m", "s"] })
             };
         }
         else {
