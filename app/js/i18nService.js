@@ -50,7 +50,8 @@ app.factory('I18nService', function() {
                 'hours' : this.timeHumanizer(diffFromAlarm, { units: ["h", "m", "s"] }) ,
                 'days' : this.timeHumanizer(diffFromAlarm, { units: ["d", "h", "m", "s"] }) ,
                 'months' : this.timeHumanizer(diffFromAlarm, { units: ["mo", "d", "h", "m", "s"] }) ,
-                'years' : this.timeHumanizer(diffFromAlarm, { units: ["y", "mo", "d", "h", "m", "s"] })
+                'years' : this.timeHumanizer(diffFromAlarm, { units: ["y", "mo", "d", "h", "m", "s"] }),
+                'custom' : this.timeHumanizer(diffFromAlarm, { units: ["y", "mo", "d", "h", "m", "s"], spacer: '-' })
             };
         }
         else {
