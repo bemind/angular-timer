@@ -1,12 +1,10 @@
 /**
- * angular-timer - v1.3.4 - 2016-05-01 9:52 PM
- * https://github.com/siddii/angular-timer
+ * angular-timer - v1.3.5 - 2016-09-01 5:27 PM
+ * https://github.com/june07/angular-timer
  *
- * Copyright (c) 2016 Siddique Hameed
- * Licensed MIT <https://github.com/siddii/angular-timer/blob/master/LICENSE.txt>
+ * Copyright (c) 2016 Adrian Wardell
+ * Licensed MIT <https://github.com/june07/angular-timer/blob/master/LICENSE.txt>
  */
-var humanizeDuration = require("humanize-duration");
-var moment = require("moment");
 var timerModule = angular.module('timer', [])
   .directive('timer', ['$compile', function ($compile) {
     return  {
@@ -243,6 +241,7 @@ var timerModule = angular.module('timer', [])
           $scope.dayUnit = timeUnits.days;
           $scope.monthUnit = timeUnits.months;
           $scope.yearUnit = timeUnits.years;
+          $scope.customUnit = timeUnits.custom;
 
           //add leading zero if number is smaller than 10
           $scope.sseconds = $scope.seconds < 10 ? '0' + $scope.seconds : $scope.seconds;
@@ -399,13 +398,14 @@ app.factory('I18nService', function() {
 
         if (typeof this.timeHumanizer != 'undefined'){
             time = {
-                'millis' : this.timeHumanizer(diffFromAlarm, { units: ["milliseconds"] }),
-                'seconds' : this.timeHumanizer(diffFromAlarm, { units: ["seconds"] }),
-                'minutes' : this.timeHumanizer(diffFromAlarm, { units: ["minutes", "seconds"] }) ,
-                'hours' : this.timeHumanizer(diffFromAlarm, { units: ["hours", "minutes", "seconds"] }) ,
-                'days' : this.timeHumanizer(diffFromAlarm, { units: ["days", "hours", "minutes", "seconds"] }) ,
-                'months' : this.timeHumanizer(diffFromAlarm, { units: ["months", "days", "hours", "minutes", "seconds"] }) ,
-                'years' : this.timeHumanizer(diffFromAlarm, { units: ["years", "months", "days", "hours", "minutes", "seconds"] })
+                'millis' : this.timeHumanizer(diffFromAlarm, { units: ["ms"] }),
+                'seconds' : this.timeHumanizer(diffFromAlarm, { units: ["s"] }),
+                'minutes' : this.timeHumanizer(diffFromAlarm, { units: ["m", "s"] }) ,
+                'hours' : this.timeHumanizer(diffFromAlarm, { units: ["h", "m", "s"] }) ,
+                'days' : this.timeHumanizer(diffFromAlarm, { units: ["d", "h", "m", "s"] }) ,
+                'months' : this.timeHumanizer(diffFromAlarm, { units: ["mo", "d", "h", "m", "s"] }) ,
+                'years' : this.timeHumanizer(diffFromAlarm, { units: ["y", "mo", "d", "h", "m", "s"] }),
+                'custom' : this.timeHumanizer(diffFromAlarm, { units: ["y", "mo", "d", "h", "m", "s"], spacer: '-' })
             };
         }
         else {
